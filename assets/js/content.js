@@ -74,7 +74,7 @@ window.CHENTUR = {
       primaryHref: "collections.html?filter=Bridal"
     },
     {
-      desktop: "assets/images/editorial/gold.jpg",
+      desktop: "assets/images/home/5.jpeg",
       mobile: "assets/images/editorial/gold.jpg",
       alt: "Gold necklace and earrings arranged on a dark surface",
       eyebrow: "The signature edit",
