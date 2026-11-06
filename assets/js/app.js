@@ -14,7 +14,8 @@
     SCHEMES,
     GENERAL_FAQS,
     SCHEME_FAQS,
-    EXPERIENCE
+    EXPERIENCE,
+    BLOG_POSTS
   } = window.CHENTUR;
 
   const page = document.body.dataset.page || "";
@@ -66,7 +67,8 @@
       collections: "Jewellery Collections",
       schemes: "Schemes",
       about: "About",
-      contact: "Contact"
+      contact: "Contact",
+      blog: "Blog"
     }[page];
 
     const navMarkup = NAV.map((item) => {
@@ -189,8 +191,7 @@
               <span></span><span></span><span></span>
             </button>
             <a class="brand" href="index.html" aria-label="${escapeHTML(SITE.name)} home">
-              <span class="brand__name">Chentur</span>
-              <span class="brand__sub">Jewellers</span>
+              <img class="brand__logo" src="assets/images/chentur-logo.png" alt="${escapeHTML(SITE.name)}" width="2344" height="540">
             </a>
             <form class="header-search" data-header-search role="search">
               <div class="header-search__form">
@@ -201,10 +202,6 @@
             </form>
             <div class="header-actions">
               <button class="icon-btn icon-btn--search" type="button" data-open-search aria-label="Open search">${ICON.search}</button>
-              <a class="icon-btn" href="wishlist.html" aria-label="View wishlist">
-                ${ICON.heart}
-                <span class="wishlist-count" data-wishlist-count hidden>0</span>
-              </a>
               <a class="header-visit" href="contact.html">Book a visit</a>
               <a class="header-visit" href="contact.html">Make Payments</a>
             </div>
@@ -270,8 +267,7 @@
             <div class="footer-grid">
               <div class="footer-brand">
                 <a class="brand brand--footer" href="index.html" aria-label="${escapeHTML(SITE.name)} home">
-                  <span class="brand__name">Chentur</span>
-                  <span class="brand__sub">Jewellers</span>
+                  <img class="brand__logo" src="assets/images/chentur-logo.png" alt="${escapeHTML(SITE.name)}" width="2344" height="540">
                 </a>
                 <p>${escapeHTML(SITE.description)}</p>
                 <address data-site="address">${escapeHTML(SITE.address)}</address>
@@ -296,7 +292,7 @@
                 <a href="about.html">About Chentur</a>
                 <a href="contact.html">Book an appointment</a>
                 <a href="faq.html">Help &amp; FAQs</a>
-                <a href="wishlist.html">Wishlist</a>
+                <a href="blog.html">Blog</a>
               </div>
               <div class="footer-column">
                 <h2>Visit the showroom</h2>
@@ -575,16 +571,6 @@
                 : 'loading="eager"'
             } decoding="async">
           </picture>
-          <span class="hero-slide__scrim"></span>
-          <span class="hero-slide__brand">A Chentur edit</span>
-          <div class="hero-slide__content">
-            <p class="eyebrow eyebrow--light">${escapeHTML(item.slide.eyebrow)}</p>
-            <h2 class="hero-slide__title">${escapeHTML(item.slide.title)}</h2>
-            <p class="hero-slide__copy">${escapeHTML(item.slide.copy)}</p>
-            <span class="hero-slide__cta">${escapeHTML(
-              item.slide.primaryLabel
-            )} <span aria-hidden="true">→</span></span>
-          </div>
         </a>`
       )
       .join("");
@@ -750,52 +736,7 @@
     ).join("");
   }
 
-  function getWishlist() {
-    try {
-      const value = JSON.parse(localStorage.getItem("chentur-wishlist") || "[]");
-      return Array.isArray(value) ? value : [];
-    } catch (error) {
-      return [];
-    }
-  }
-
-  function saveWishlist(ids) {
-    try {
-      localStorage.setItem("chentur-wishlist", JSON.stringify(ids));
-    } catch (error) {
-      return;
-    }
-  }
-
-  function toggleWishlist(id) {
-    const current = getWishlist();
-    const exists = current.includes(id);
-    const next = exists ? current.filter((item) => item !== id) : [...current, id];
-    saveWishlist(next);
-    updateWishlistUI();
-    renderWishlistPage();
-  }
-
-  function updateWishlistUI() {
-    const ids = getWishlist();
-    $$("[data-wishlist-count]").forEach((element) => {
-      element.textContent = ids.length;
-      element.hidden = ids.length === 0;
-    });
-    $$("[data-wishlist-id]").forEach((button) => {
-      const saved = ids.includes(button.dataset.wishlistId);
-      button.classList.toggle("is-saved", saved);
-      button.setAttribute("aria-pressed", String(saved));
-      const name = button.dataset.productName || "this piece";
-      button.setAttribute(
-        "aria-label",
-        saved ? `Remove ${name} from wishlist` : `Save ${name} to wishlist`
-      );
-    });
-  }
-
   function productCard(product) {
-    const saved = getWishlist().includes(product.id);
     const secondary = product.images && product.images[1];
     return `<article class="product-card">
       <div class="product-card__media">
@@ -816,13 +757,6 @@
             ? `<span class="product-card__badge">${escapeHTML(product.badge)}</span>`
             : ""
         }
-        <button class="wishlist-btn${saved ? " is-saved" : ""}" type="button" data-wishlist-id="${
-      product.id
-    }" data-product-name="${escapeHTML(product.name)}" aria-pressed="${saved}" aria-label="${
-      saved ? "Remove" : "Save"
-    } ${escapeHTML(product.name)} ${saved ? "from" : "to"} wishlist">
-          ${ICON.heart}
-        </button>
       </div>
       <div class="product-card__body">
         <p class="product-card__category">${escapeHTML(
@@ -834,6 +768,122 @@
         <p class="product-card__price">${escapeHTML(product.price)}</p>
       </div>
     </article>`;
+  }
+
+  const formatBlogDate = (value) => {
+    const date = new Date(`${value}T00:00:00`);
+    if (Number.isNaN(date.getTime())) return "";
+    return date.toLocaleDateString("en-IN", {
+      day: "numeric",
+      month: "long",
+      year: "numeric"
+    });
+  };
+
+  const blogCard = (post) => `<a class="blog-card" href="blog-post.html?post=${encodeURIComponent(
+    post.slug
+  )}">
+      <span class="blog-card__media">
+        <img src="${escapeHTML(post.cover)}" alt="${escapeHTML(
+    post.coverAlt || post.title
+  )}" width="800" height="600" loading="lazy">
+      </span>
+      <span class="blog-card__title">${escapeHTML(post.title)}</span>
+    </a>`;
+
+  const sortBlogPosts = (posts) =>
+    [...posts].sort((a, b) => new Date(b.date) - new Date(a.date));
+
+  function renderBlogList() {
+    const host = $("[data-blog-list]");
+    if (!host) return;
+    const posts = sortBlogPosts(BLOG_POSTS);
+    host.innerHTML = posts.length
+      ? posts.map(blogCard).join("")
+      : `<p class="blog-empty">New stories are on the way. Please check back soon.</p>`;
+    const count = $("[data-blog-count]");
+    if (count) {
+      count.textContent = `${posts.length} ${
+        posts.length === 1 ? "story" : "stories"
+      }`;
+    }
+  }
+
+  function renderBlogBlock(block) {
+    switch (block.type) {
+      case "heading":
+        return `<h2>${escapeHTML(block.text || "")}</h2>`;
+      case "image":
+        return `<figure class="blog-post__figure">
+          <img src="${escapeHTML(block.src || "")}" alt="${escapeHTML(
+          block.alt || ""
+        )}" width="1200" height="800" loading="lazy">
+          ${block.caption ? `<figcaption>${escapeHTML(block.caption)}</figcaption>` : ""}
+        </figure>`;
+      case "quote":
+        return `<blockquote>${escapeHTML(block.text || "")}</blockquote>`;
+      case "list":
+        return `<ul>${(block.items || [])
+          .map((item) => `<li>${escapeHTML(item)}</li>`)
+          .join("")}</ul>`;
+      case "paragraph":
+      default:
+        return `<p>${escapeHTML(block.text || "")}</p>`;
+    }
+  }
+
+  function initBlogPost() {
+    const articleHost = $("[data-blog-article]");
+    if (!articleHost) return;
+
+    const params = new URLSearchParams(window.location.search);
+    const posts = sortBlogPosts(BLOG_POSTS);
+    const post =
+      posts.find((item) => item.slug === params.get("post")) || posts[0];
+    if (!post) return;
+
+    document.title = `${post.title} | ${SITE.name}`;
+    const setText = (selector, value) => {
+      const node = $(selector);
+      if (node) node.textContent = value;
+    };
+    setText("[data-blog-title]", post.title);
+    setText("[data-blog-category]", post.category || "Blog");
+    setText(
+      "[data-blog-meta]",
+      [formatBlogDate(post.date), post.readTime].filter(Boolean).join(" · ")
+    );
+
+    const description = (post.body || []).find((block) => block.type === "paragraph");
+    const metaDescription = $('meta[name="description"]');
+    if (metaDescription && description) {
+      metaDescription.setAttribute("content", description.text);
+    }
+
+    const breadcrumb = $("[data-blog-breadcrumb]");
+    if (breadcrumb) {
+      breadcrumb.innerHTML = `<a href="index.html">Home</a><span aria-hidden="true">/</span><a href="blog.html">Blog</a><span aria-hidden="true">/</span><span>${escapeHTML(
+        post.title
+      )}</span>`;
+    }
+
+    const cover = $("[data-blog-cover]");
+    if (cover) {
+      cover.src = post.cover;
+      cover.alt = post.coverAlt || post.title;
+    }
+
+    articleHost.innerHTML = (post.body || []).map(renderBlogBlock).join("");
+
+    const moreSection = $("[data-blog-more-section]");
+    const moreHost = $("[data-blog-more]");
+    if (moreHost) {
+      const more = posts.filter((item) => item.slug !== post.slug).slice(0, 3);
+      if (more.length) {
+        moreHost.innerHTML = more.map(blogCard).join("");
+        if (moreSection) moreSection.hidden = false;
+      }
+    }
   }
 
   function renderProductRail() {
@@ -1068,7 +1118,6 @@
       $$("[data-reset-filters]").forEach((button) =>
         button.addEventListener("click", resetFilters)
       );
-      updateWishlistUI();
       syncUrl();
     };
 
@@ -1165,7 +1214,6 @@
       });
     }
 
-    const saved = getWishlist().includes(product.id);
     infoHost.innerHTML = `
       <p class="eyebrow">${escapeHTML(product.collection)} · ${escapeHTML(product.type)}</p>
       <h1>${escapeHTML(product.name)}</h1>
@@ -1182,13 +1230,6 @@
           `Hello ${SITE.name}, I would like to enquire about ${product.name}.`
         )}" target="_blank" rel="noopener noreferrer">Enquire on WhatsApp <span aria-hidden="true">→</span></a>
         <a class="btn btn--outline" href="contact.html">Book a viewing</a>
-        <button class="pdp-wishlist${saved ? " is-saved" : ""}" type="button" data-wishlist-id="${
-          product.id
-        }" data-product-name="${escapeHTML(product.name)}" aria-pressed="${saved}" aria-label="${
-          saved ? "Remove" : "Save"
-        } ${escapeHTML(product.name)} ${saved ? "from" : "to"} wishlist">
-          ${ICON.heart} Wishlist
-        </button>
       </div>
       <div class="pdp-availability">
         <h2>Available at our showroom</h2>
@@ -1224,7 +1265,6 @@
     if (similarHost) {
       similarHost.innerHTML = similar.map(productCard).join("");
     }
-    updateWishlistUI();
   }
 
     const SCHEME_ICONS = [ICON.calendar, ICON.gem, ICON.check, ICON.pin];
@@ -1429,36 +1469,6 @@
     });
   }
 
-  function renderWishlistPage() {
-    const host = $("[data-wishlist-content]");
-    if (!host) return;
-    const ids = getWishlist();
-    const items = PRODUCTS.filter((product) => ids.includes(product.id));
-    const count = $("[data-wishlist-count-label]");
-    if (count) {
-      count.textContent = `${items.length} ${items.length === 1 ? "piece" : "pieces"}`;
-    }
-    host.innerHTML = items.length
-      ? `<div class="product-grid">${items.map(productCard).join("")}</div>`
-      : `<div class="wishlist-empty">
-          ${ICON.heart}
-          <h2>Your wishlist is empty</h2>
-          <p>Save the pieces you love and come back to them whenever you are ready.</p>
-          <a class="btn btn--primary" href="collections.html">Explore collections <span aria-hidden="true">→</span></a>
-        </div>`;
-    updateWishlistUI();
-  }
-
-  function setupWishlist() {
-    document.addEventListener("click", (event) => {
-      const button = event.target.closest("[data-wishlist-id]");
-      if (!button) return;
-      event.preventDefault();
-      toggleWishlist(button.dataset.wishlistId);
-    });
-    updateWishlistUI();
-  }
-
   function initScrollReveal() {
     if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) return;
     if (!("IntersectionObserver" in window)) return;
@@ -1511,7 +1521,9 @@
       { selector: ".map-frame", type: "up", stagger: 0 },
       { selector: ".help-card", type: "up", stagger: 80 },
       { selector: ".faq-intro", type: "left", stagger: 0 },
-      { selector: ".wishlist-empty", type: "up", stagger: 0 },
+      { selector: ".blog-card", type: "scale", stagger: 70 },
+      { selector: ".blog-post__head", type: "up", stagger: 0 },
+      { selector: ".blog-post__body", type: "up", stagger: 0 },
       { selector: ".legal-meta", type: "up", stagger: 0 },
       { selector: ".legal-notice", type: "up", stagger: 0 },
       { selector: ".legal-content section", type: "up", stagger: 45 },
@@ -1604,12 +1616,12 @@
   initProductPage();
   initSchemesPage();
   renderFaqs();
-  renderWishlistPage();
+  renderBlogList();
+  initBlogPost();
   injectSiteDetails();
   setupHeader();
   setupSearch();
   setupMobileSearch();
-  setupWishlist();
   setupEnquiryForm();
   initScrollReveal();
   handleInitialHash();

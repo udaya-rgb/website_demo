@@ -3,10 +3,13 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description" content="Your saved Chentur Jewellers pieces, ready to revisit or enquire about.">
-  <meta name="robots" content="noindex">
-  <title>Wishlist | Chentur Jewellers</title>
-  <link rel="icon" type="image/svg+xml" href="assets/images/favicon.svg">
+  <meta name="description" content="Stories, guidance and inspiration from Chentur Jewellers — bridal advice, jewellery care and styling notes from our Rajapalayam showroom.">
+  <meta property="og:title" content="Blog | Chentur Jewellers">
+  <meta property="og:description" content="Stories, guidance and inspiration from Chentur Jewellers.">
+  <meta property="og:type" content="website">
+  <title>Blog | Chentur Jewellers</title>
+  <link rel="icon" type="image/png" href="assets/images/favicon.png">
+  <link rel="apple-touch-icon" href="assets/images/favicon.png">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,500;0,9..144,600;1,9..144,400&family=IBM+Plex+Sans:wght@300;400;500;600&family=Nunito+Sans:wght@400;600;700&display=swap" rel="stylesheet">
@@ -14,7 +17,7 @@
   <script src="assets/js/content.js" defer></script>
   <script src="assets/js/app.js" defer></script>
 </head>
-<body data-page="wishlist">
+<body data-page="blog">
   <div id="site-header"></div>
 
   <main id="main">
@@ -23,18 +26,20 @@
         <nav class="breadcrumbs" aria-label="Breadcrumb">
           <a href="index.html">Home</a>
           <span aria-hidden="true">/</span>
-          <span>Wishlist</span>
+          <span>Blog</span>
         </nav>
         <div class="page-head__row">
-          <h1>Your wishlist</h1>
-          <span class="page-head__count" data-wishlist-count-label>0 pieces</span>
+          <h1>From the journal</h1>
+          <span class="page-head__count" data-blog-count></span>
         </div>
-        <p class="page-head__lead">The pieces you have saved for later. When you are ready, our team can help you view them in person.</p>
+        <p class="page-head__lead">Stories, guidance and quiet inspiration — from choosing a bridal piece to caring for the jewellery you wear every day.</p>
       </div>
     </section>
 
-    <section class="wishlist-section">
-      <div class="container" data-wishlist-content></div>
+    <section class="section">
+      <div class="container">
+        <div class="blog-grid" data-blog-list></div>
+      </div>
     </section>
   </main>
 

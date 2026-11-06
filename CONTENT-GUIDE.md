@@ -195,7 +195,8 @@ The following can be edited directly in each HTML file:
 - `about.html` — brand story, values, quote and showroom CTA.
 - `contact.html` — appointment form, contact cards and showroom information.
 - `faq.html` — help cards and FAQ page structure.
-- `wishlist.html` — wishlist introduction.
+- `blog.html` — blog listing introduction and page copy.
+- `blog-post.html` — blog article template shell.
 - `privacy.html` / `terms.html` — legal copy.
 - `404.html` — not-found message.
 
@@ -208,6 +209,7 @@ assets/images/
   home/         Hero slides
   categories/   Circular category images
   products/     Product cards and galleries
+  blog/         Blog cover images and article images
   editorial/    Bridal, gifting, world, assurance, store and CTA images
   ...
 ```
@@ -220,22 +222,55 @@ assets/images/
 4. Optimise images before upload (JPG or WebP, generally under 300 KB where possible).
 5. Add useful `alt` text in `content.js` for product and category images.
 
+### Replacing the logo
+
+The header and footer logo uses `assets/images/chentur-logo.png`. The browser tab icon uses `assets/images/favicon.png`. Replace either file with the same filename to update the branding everywhere.
+
 ### Current photography
 
 The current photographs are royalty-free stock images from Unsplash, used as illustrative placeholders. They are not photographs of actual Chentur inventory. Replace them with your own showroom and product photography before publishing.
 
 See `assets/images/CREDITS.md` for the source list.
 
-## 10. Wishlist
-
-The wishlist is stored in the visitor’s browser using `localStorage`. No account or server is required.
-
-- Hearts are shown on product cards and product pages.
-- The wishlist page reads the saved product IDs.
-- The header wishlist count updates automatically.
-- Clearing browser storage clears the wishlist.
-
 There is no checkout, payment or cart. All purchase intent goes to WhatsApp or an appointment request.
+
+## 10. Blog
+
+Blog posts live in the `BLOG_POSTS` array in `content.js`. The listing page (`blog.html`) and article page (`blog-post.html`) are generated from this data — you do not need to create a new HTML file for each post.
+
+### Adding a post
+
+1. Add an image to `assets/images/blog/`.
+2. Add a new object to `BLOG_POSTS`, ideally at the top for the newest post:
+
+```js
+{
+  slug: "your-post-url-name",
+  title: "Your post title",
+  category: "Bridal",
+  date: "2026-11-06",
+  readTime: "4 min read",
+  cover: "assets/images/blog/your-cover.jpg",
+  coverAlt: "Describe the cover image",
+  body: [
+    { type: "paragraph", text: "Opening paragraph." },
+    { type: "heading", text: "A section heading" },
+    { type: "paragraph", text: "More text." },
+    { type: "image", src: "assets/images/blog/your-image.jpg", alt: "Describe the image", caption: "Optional caption" },
+    { type: "quote", text: "A pull quote." },
+    { type: "list", items: ["First point", "Second point"] }
+  ]
+}
+```
+
+- `slug` becomes the post URL: `blog-post.html?post=your-post-url-name`.
+- Supported body block types: `paragraph`, `heading`, `image`, `quote`, `list`.
+- Posts are sorted by `date` (newest first) on the listing page.
+- The post page automatically fills the title, breadcrumb, cover image and meta description.
+
+### Replacing blog images
+
+Keep the same filename to swap a photo without editing code, or add a new file and update the `cover` or image `src` path. Use JPG or WebP and aim for roughly 1600 px wide covers where possible.
 
 ## 11. Contact forms and WhatsApp
 
@@ -269,5 +304,5 @@ Before publishing:
 - Check that every product link, price label and enquiry path is correct.
 - Test on mobile at 360 px, 390 px and 768 px.
 - Test desktop at 1024 px and 1440 px.
-- Check the wishlist, search, filters, tabs, FAQs and WhatsApp forms.
+- Check the search, filters, tabs, FAQs, blog posts and WhatsApp forms.
 - Confirm the privacy policy and terms reflect your actual business practices.

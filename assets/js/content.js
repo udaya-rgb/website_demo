@@ -8,9 +8,9 @@ window.CHENTUR = {
     address:
       "829, Tenkasi Road, Rajapalayam, Virudhunagar, Tamil Nadu – 626117",
     addressShort: "Rajapalayam, Tamil Nadu",
-    phone: "+91 00000 00000",
-    whatsapp: "910000000000",
-    email: "hello@chenturjewellers.com",
+    phone: "+91 91691 60619",
+    whatsapp: "919169160619",
+    email: "chenthur916@gmail.com",
     mapsUrl:
       "https://www.google.com/maps/search/?api=1&query=829%2C%20Tenkasi%20Road%2C%20Rajapalayam%2C%20Virudhunagar%2C%20Tamil%20Nadu%20626117",
     mapEmbed:
@@ -48,12 +48,13 @@ window.CHENTUR = {
     },
     { label: "Schemes", href: "schemes.html", page: "schemes" },
     { label: "Contact", href: "contact.html", page: "contact" },
-    { label: "About", href: "about.html", page: "about" }
+    { label: "About", href: "about.html", page: "about" },
+    { label: "Blog", href: "blog.html", page: "blog" }
   ],
 
   HERO_SLIDES: [
     {
-      desktop: "assets/images/home/hero-model-wide.jpg",
+      desktop: "assets/images/home/1.jpeg",
       mobile: "assets/images/home/hero-model-mobile.jpg",
       alt: "Layered gold necklaces worn with a white shirt",
       eyebrow: "The everyday gold edit",
@@ -63,7 +64,7 @@ window.CHENTUR = {
       primaryHref: "collections.html?filter=Everyday"
     },
     {
-      desktop: "assets/images/home/hero-bridal-wide.jpg",
+      desktop: "assets/images/home/2.jpeg",
       mobile: "assets/images/home/hero-bridal-mobile.jpg",
       alt: "Bride wearing traditional gold jewellery",
       eyebrow: "The bridal edit",
@@ -83,7 +84,7 @@ window.CHENTUR = {
       primaryHref: "collections.html?filter=Signature"
     },
     {
-      desktop: "assets/images/home/hero-gifting-wide.jpg",
+      desktop: "assets/images/home/3.jpeg",
       mobile: "assets/images/home/hero-gifting-mobile.jpg",
       alt: "Rose gold necklace and earrings arranged on a warm surface",
       eyebrow: "The gifting edit",
@@ -93,7 +94,7 @@ window.CHENTUR = {
       primaryHref: "collections.html?filter=Gifting"
     },
     {
-      desktop: "assets/images/home/hero-new-wide.jpg",
+      desktop: "assets/images/home/4.jpeg",
       mobile: "assets/images/home/hero-new-mobile.jpg",
       alt: "Woman wearing traditional Indian jewellery",
       eyebrow: "New arrivals",
@@ -519,5 +520,141 @@ window.CHENTUR = {
     { title: "Book an appointment", copy: "Dedicated time for your visit.", href: "contact.html", link: "Book a visit" },
     { title: "Talk to our team", copy: "Ask about a piece or a scheme.", href: "contact.html", link: "Contact us" },
     { title: "Gold savings schemes", copy: "Plan for the piece you want.", href: "schemes.html", link: "Explore schemes" }
+  ],
+
+  BLOG_POSTS: [
+    {
+      slug: "choosing-a-bridal-necklace",
+      title: "How to choose a bridal necklace",
+      category: "Bridal",
+      date: "2026-10-12",
+      readTime: "5 min read",
+      cover: "assets/images/blog/bridal-necklace.jpg",
+      coverAlt: "Bride wearing a traditional gold necklace",
+      body: [
+        {
+          type: "paragraph",
+          text: "A bridal necklace is more than the centrepiece of a wedding day. It often becomes the piece a family returns to for generations, carried from one celebration to the next. Choosing one is less about following a trend and more about understanding the neckline, the ceremony and the way you want to feel."
+        },
+        { type: "heading", text: "Begin with the neckline" },
+        {
+          type: "paragraph",
+          text: "The neckline of your bridal blouse or saree sets the natural frame. A deep V or sweetheart neckline carries a layered haram beautifully, while a high or closed neckline often suits a shorter, sculptural necklace. Bring a photo of the outfit to your consultation so the proportions can be considered together."
+        },
+        {
+          type: "image",
+          src: "assets/images/blog/bridal-detail.jpg",
+          alt: "Close-up of a traditional gold necklace with fine detailing",
+          caption: "Consider how the piece sits against the fabric and the neckline."
+        },
+        { type: "heading", text: "Think about the ceremony" },
+        {
+          type: "paragraph",
+          text: "Different ceremonies call for different weights. A muhurtham may suit a statement haram, while a reception look can lean towards a lighter, contemporary layer. If you are planning to wear the same necklace throughout, choose a design that balances presence with comfort for a long day."
+        },
+        {
+          type: "quote",
+          text: "The right piece should feel like it belongs to you, not like it is wearing you."
+        },
+        { type: "heading", text: "A few practical questions" },
+        {
+          type: "list",
+          items: [
+            "Will you wear it once, or do you hope to pass it on?",
+            "Does the weight feel comfortable when you turn and sit?",
+            "Can it be layered with a shorter piece or earrings you already own?",
+            "Does the clasp and finish feel secure and well made?"
+          ]
+        },
+        {
+          type: "paragraph",
+          text: "Take your time with the decision. A bridal necklace should feel personal, considered and quietly enduring. Our team is always happy to guide you through the options at the showroom."
+        }
+      ]
+    },
+    {
+      slug: "caring-for-your-gold-jewellery",
+      title: "Caring for your gold jewellery",
+      category: "Care",
+      date: "2026-09-24",
+      readTime: "4 min read",
+      cover: "assets/images/blog/gold-jewellery-care.jpg",
+      coverAlt: "Gold jewellery arranged on a warm surface",
+      body: [
+        {
+          type: "paragraph",
+          text: "Gold is remarkably durable, but a little care keeps its finish, colour and structure looking their best for years. Most of the wear we see comes down to small habits rather than major damage."
+        },
+        { type: "heading", text: "Store pieces separately" },
+        {
+          type: "paragraph",
+          text: "Keep each piece in its own soft pouch or compartment. Gold is a soft metal, and pieces that rub against each other can pick up fine scratches over time. Chains in particular benefit from being fastened before storage to avoid tangling."
+        },
+        {
+          type: "image",
+          src: "assets/images/blog/gold-care-detail.jpg",
+          alt: "Gold necklace and earrings arranged on a dark surface",
+          caption: "A soft pouch and a little space go a long way."
+        },
+        { type: "heading", text: "Keep away from chemicals" },
+        {
+          type: "paragraph",
+          text: "Perfume, hairspray, chlorine and harsh cleaning products can dull the surface and settle into settings. A simple rule is jewellery last when getting ready and first when coming home."
+        },
+        { type: "heading", text: "Clean gently, and know when to ask" },
+        {
+          type: "list",
+          items: [
+            "Use a soft, dry cloth after wearing to remove oils and dust.",
+            "For a deeper clean, use lukewarm water with a drop of mild soap.",
+            "Avoid abrasive brushes, especially on polished or stone-set pieces.",
+            "Bring intricate or stone-set pieces to the showroom for professional cleaning."
+          ]
+        },
+        {
+          type: "paragraph",
+          text: "Periodic professional care is the simplest way to keep a well-loved piece looking its best. If a clasp feels loose or a setting looks worn, have it checked before it becomes a bigger repair."
+        }
+      ]
+    },
+    {
+      slug: "a-guide-to-layering-gold",
+      title: "A quiet guide to layering gold",
+      category: "Styling",
+      date: "2026-08-30",
+      readTime: "3 min read",
+      cover: "assets/images/blog/layering-gold.jpg",
+      coverAlt: "Layered gold necklaces worn with a light outfit",
+      body: [
+        {
+          type: "paragraph",
+          text: "Layering is one of the most personal ways to wear gold. Done with a little restraint, it turns a few simple pieces into something that feels entirely your own."
+        },
+        { type: "heading", text: "Start with a base" },
+        {
+          type: "paragraph",
+          text: "A fine chain worn close to the collarbone makes a natural foundation. From there, add length and weight gradually. Two or three pieces are usually enough to create depth without crowding the neckline."
+        },
+        {
+          type: "image",
+          src: "assets/images/blog/layering-detail.jpg",
+          alt: "Fine gold chains layered together",
+          caption: "Vary length first, then weight."
+        },
+        { type: "heading", text: "Mix length, not volume" },
+        {
+          type: "paragraph",
+          text: "The most balanced layers tend to differ in length rather than in visual weight. A short chain, a mid-length pendant and a slightly longer chain will sit comfortably together. When every piece is a statement, they begin to compete."
+        },
+        {
+          type: "quote",
+          text: "Layering works best when it looks like it happened naturally."
+        },
+        {
+          type: "paragraph",
+          text: "Wear your layers for a few hours at home before a big occasion. Notice how they move, whether they tangle and how they sit when you turn. The pieces that feel effortless are the ones you will reach for again and again."
+        }
+      ]
+    }
   ]
 };
