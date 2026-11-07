@@ -290,7 +290,6 @@
                 <h2>Information</h2>
                 <a href="schemes.html">Gold savings schemes</a>
                 <a href="about.html">About Chentur</a>
-                <a href="contact.html">Book an appointment</a>
                 <a href="faq.html">Help &amp; FAQs</a>
                 <a href="blog.html">Blog</a>
               </div>
