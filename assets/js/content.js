@@ -41,15 +41,16 @@ window.CHENTUR = {
   },
 
   NAV: [
+    { label: "Home", href: "index.html", page: "home" },
+    { label: "About Us", href: "about.html", page: "about" },
+    { label: "Schemes", href: "schemes.html", page: "schemes" },
     {
       label: "Jewellery Collections",
       href: "collections.html",
       page: "collections"
     },
-    { label: "Schemes", href: "schemes.html", page: "schemes" },
-    { label: "Contact", href: "contact.html", page: "contact" },
-    { label: "About", href: "about.html", page: "about" },
-    { label: "Blog", href: "blog.html", page: "blog" }
+    { label: "Blog", href: "blog.html", page: "blog" },
+    { label: "Contact Us", href: "contact.html", page: "contact" }
   ],
 
   HERO_SLIDES: [

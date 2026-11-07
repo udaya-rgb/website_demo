@@ -64,11 +64,12 @@
     if (!host) return;
 
     const activeLabel = {
-      collections: "Jewellery Collections",
+      home: "Home",
+      about: "About Us",
       schemes: "Schemes",
-      about: "About",
-      contact: "Contact",
-      blog: "Blog"
+      collections: "Jewellery Collections",
+      blog: "Blog",
+      contact: "Contact Us"
     }[page];
 
     const navMarkup = NAV.map((item) => {
@@ -202,8 +203,7 @@
             </form>
             <div class="header-actions">
               <button class="icon-btn icon-btn--search" type="button" data-open-search aria-label="Open search">${ICON.search}</button>
-              <a class="header-visit" href="contact.html">Book a visit</a>
-              <a class="header-visit" href="contact.html">Make Payments</a>
+              <a class="header-visit" href="contact.html">Saving Scheme Payment</a>
             </div>
           </div>
         </div>
@@ -224,7 +224,7 @@
             <p>${escapeHTML(SITE.description)}</p>
             <a href="${phoneHref()}" data-site-link="phone" data-site="phone">${escapeHTML(SITE.phone)}</a>
             <a href="mailto:${escapeHTML(SITE.email)}" data-site-link="email" data-site="email">${escapeHTML(SITE.email)}</a>
-            <a class="btn btn--primary" href="contact.html">Book a visit <span aria-hidden="true">→</span></a>
+            <a class="btn btn--primary" href="contact.html">Saving Scheme Payment <span aria-hidden="true">→</span></a>
           </div>
         </div>
       </div>
