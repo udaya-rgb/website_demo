@@ -55,7 +55,7 @@ window.CHENTUR = {
   HERO_SLIDES: [
     {
       desktop: "assets/images/home/1.jpeg",
-      mobile: "assets/images/home/hero-model-mobile.jpg",
+      mobile: "assets/images/home/11.jpeg",
       alt: "Layered gold necklaces worn with a white shirt",
       eyebrow: "The everyday gold edit",
       title: "Everyday gold. Quietly extraordinary.",
@@ -65,7 +65,7 @@ window.CHENTUR = {
     },
     {
       desktop: "assets/images/home/2.jpeg",
-      mobile: "assets/images/home/hero-bridal-mobile.jpg",
+      mobile: "assets/images/home/22.jpeg",
       alt: "Bride wearing traditional gold jewellery",
       eyebrow: "The bridal edit",
       title: "Heirlooms for the beginning of forever.",
@@ -75,7 +75,7 @@ window.CHENTUR = {
     },
     {
       desktop: "assets/images/home/5.jpeg",
-      mobile: "assets/images/editorial/gold.jpg",
+      mobile: "assets/images/home/55.jpeg",
       alt: "Gold necklace and earrings arranged on a dark surface",
       eyebrow: "The signature edit",
       title: "Signature gold, made to be remembered.",
@@ -85,7 +85,7 @@ window.CHENTUR = {
     },
     {
       desktop: "assets/images/home/3.jpeg",
-      mobile: "assets/images/home/hero-gifting-mobile.jpg",
+      mobile: "assets/images/home/33.jpeg",
       alt: "Rose gold necklace and earrings arranged on a warm surface",
       eyebrow: "The gifting edit",
       title: "Gifts that stay with them.",
@@ -95,7 +95,7 @@ window.CHENTUR = {
     },
     {
       desktop: "assets/images/home/4.jpeg",
-      mobile: "assets/images/home/hero-new-mobile.jpg",
+      mobile: "assets/images/home/44.jpeg",
       alt: "Woman wearing traditional Indian jewellery",
       eyebrow: "New arrivals",
       title: "New pieces, added with intention.",
