@@ -1,4 +1,4 @@
-# Chentur Jewellers — Website Content & Photo Guide
+# Chenthur Jewellers — Website Content & Photo Guide
 
 This site is built with plain HTML, CSS and JavaScript. There is no build step, framework or database. Open `index.html` in a browser to preview it, then upload the whole folder to any static host when you are ready.
 
@@ -228,7 +228,7 @@ The header and footer logo uses `assets/images/chentur-logo.png`. The browser ta
 
 ### Current photography
 
-The current photographs are royalty-free stock images from Unsplash, used as illustrative placeholders. They are not photographs of actual Chentur inventory. Replace them with your own showroom and product photography before publishing.
+The current photographs are royalty-free stock images from Unsplash, used as illustrative placeholders. They are not photographs of actual Chenthur inventory. Replace them with your own showroom and product photography before publishing.
 
 See `assets/images/CREDITS.md` for the source list.
 

@@ -231,7 +231,7 @@
       <div class="search-overlay" data-search-overlay aria-hidden="true">
         <div class="search-overlay__panel" role="dialog" aria-modal="true" aria-labelledby="search-overlay-title">
           <div class="search-overlay__head">
-            <h2 id="search-overlay-title">Search Chentur</h2>
+            <h2 id="search-overlay-title">Search Chenthur</h2>
             <button class="search-overlay__close" type="button" data-close-search aria-label="Close search">&times;</button>
           </div>
           <form class="search-overlay__form" data-overlay-search role="search">
@@ -289,7 +289,7 @@
               <div class="footer-column">
                 <h2>Information</h2>
                 <a href="schemes.html">Gold savings schemes</a>
-                <a href="about.html">About Chentur</a>
+                <a href="about.html">About Chenthur</a>
                 <a href="faq.html">Help &amp; FAQs</a>
                 <a href="blog.html">Blog</a>
               </div>

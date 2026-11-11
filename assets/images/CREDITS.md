@@ -2,7 +2,7 @@
 
 The photographs in this folder are illustrative stock images downloaded from Unsplash and used under the Unsplash License.
 
-They are **not photographs of actual Chentur Jewellers inventory or premises**. Replace them with real showroom and product photography before publishing the site.
+They are **not photographs of actual Chenthur Jewellers inventory or premises**. Replace them with real showroom and product photography before publishing the site.
 
 Source image URLs:
 

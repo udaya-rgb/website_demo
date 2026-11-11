@@ -1,7 +1,7 @@
 window.CHENTUR = {
   SITE: {
     name: "CHENTHUR JEWELLERS",
-    shortName: "Chentur",
+    shortName: "Chenthur",
     tagline: "Fine jewellery for every chapter.",
     description:
       "Timeless gold jewellery, thoughtfully selected for the moments that matter.",
@@ -431,7 +431,7 @@ window.CHENTUR = {
       shortDescription:
         "Give your old gold a new life by exchanging it for beautiful new jewellery of your choice.",
       description:
-        "Bring your old gold jewellery to Chentur Jewellers and get its value. Exchange it for beautiful new jewellery of your choice over a scheme duration of 330 days. Your gold, your choice, your new style.",
+        "Bring your old gold jewellery to Chenthur Jewellers and get its value. Exchange it for beautiful new jewellery of your choice over a scheme duration of 330 days. Your gold, your choice, your new style.",
       bestFor: "Old gold exchange",
       features: [
         "Bring your old gold jewellery to the showroom",
@@ -464,7 +464,7 @@ window.CHENTUR = {
     {
       question: "Do you offer gold saving schemes?",
       answer:
-        "Yes. Chentur Jewellers offers four savings and exchange schemes: Future Gold, Digi Gold, One Time Investment and Revival. Full details are available on the Schemes page."
+        "Yes. Chenthur Jewellers offers four savings and exchange schemes: Future Gold, Digi Gold, One Time Investment and Revival. Full details are available on the Schemes page."
     },
     {
       question: "How should I care for my gold jewellery?",
@@ -507,7 +507,7 @@ window.CHENTUR = {
     {
       question: "How does the Revival Scheme work?",
       answer:
-        "Bring your old gold jewellery to Chentur Jewellers and get its value. Exchange it for new jewellery of your choice. The scheme duration is 330 days, and the stated benefit applies to eligible gold jewellery with VA up to 18%. Terms and conditions apply."
+        "Bring your old gold jewellery to Chenthur Jewellers and get its value. Exchange it for new jewellery of your choice. The scheme duration is 330 days, and the stated benefit applies to eligible gold jewellery with VA up to 18%. Terms and conditions apply."
     },
     {
       question: "Are the schemes refundable or do they offer interest?",
